@@ -7,11 +7,21 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(private navCtrl: NavController) {
+  private username: string;
+  private password: string;
 
+  constructor(private navCtrl: NavController) {
   }
 
-  navToMainPage(){
-    this.navCtrl.push("MainPage")
+  Login(){
+    if (this.username=="Alvin" && this.password=="Fuck123!"){
+      this.navCtrl.push("MainPage");
+    } else {
+      console.log("Fuck you");
+    }
+  }
+
+  Register(){
+    this.navCtrl.push("RegisterPage");
   }
 }
