@@ -22,6 +22,8 @@ export class MainPage {
     console.log('ionViewDidLoad MainPage');
   }
 
-
+  gotoRegisterPage(){
+    this.navCtrl.push("RegisterPage")
+  }
 
 }
