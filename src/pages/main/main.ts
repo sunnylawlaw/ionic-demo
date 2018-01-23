@@ -31,6 +31,8 @@ export class MainPage {
     _navParams: NavParams,
     _iab: InAppBrowser) {
     this._navParams = _navParams;
+    this._navCtrl = _navCtrl;
+    this._iab = _iab;
 
 
   }
@@ -41,15 +43,16 @@ export class MainPage {
 
   ionViewWillEnter(){
     console.log('ionViewWillEnter');
-  }
-
-  ionViewDidEnter(){
-    console.log('ionViewDidEnter');
-    console.log(this._navParams.data);
+    // console.log(this._navParams.data);
     this.catch_data=this._navParams.data;
     this.tel=this.catch_data.tel;
     this.email=this.catch_data.email;
     this.address=this.catch_data.address;
+  }
+
+  ionViewDidEnter(){
+    console.log('ionViewDidEnter');
+
   }
 
   ionViewWillLeave(){
