@@ -20,9 +20,9 @@ export class MainPage {
   private _navParams: NavParams;
   private _iab: InAppBrowser;
 
-  tel:number;
-  email:string;
-  address:string;
+  private _tel:number;
+  private _email:string;
+  private _address:string;
 
   catch_data: any;
 
@@ -45,9 +45,9 @@ export class MainPage {
     console.log('ionViewWillEnter');
     // console.log(this._navParams.data);
     this.catch_data=this._navParams.data;
-    this.tel=this.catch_data.tel;
-    this.email=this.catch_data.email;
-    this.address=this.catch_data.address;
+    this._tel=this.catch_data.tel;
+    this._email=this.catch_data.email;
+    this._address=this.catch_data.address;
   }
 
   ionViewDidEnter(){
