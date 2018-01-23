@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import  {HomePage}  from '../home/home';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 /**
  * Generated class for the MainPage page.
  *
@@ -17,9 +18,10 @@ export class MainPage {
 // userInfoHomePage:HomePage;
  catchMsg=HomePage;
 
-  constructor(private navCtrl: NavController) {
+
+  constructor(private navCtrl: NavController ,private iab: InAppBrowser) {
     // this.catchMsg=this.navParams.get('userInfo');
-    
+
   }
 
 
@@ -27,11 +29,20 @@ export class MainPage {
     console.log('ionViewDidLoad MainPage');
   }
 
+
+  goBrowser(){
+    this.iab.create('https://ionicframework.com/');
+    // browser.executeScript();
+    // browser.insertCSS();
+    // browser.close();
+  }
+
+
   gotoRegisterPage(){
     this.navCtrl.push("RegisterPage");
   }
   gotoHomePage(){
-    this.navCtrl.push("HomePage");
+    this.navCtrl.push(HomePage);
   }
 
 }
