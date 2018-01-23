@@ -15,20 +15,50 @@
 
 <ion-content padding>
 
-<label>tel:{{catchMsg.tel}}</label>
-<br>
-<label>email:{{catchMsg.email}}</label>
-<br>
-<label>address:{{catchMsg.address}}</label>
 
+
+
+
+  <div class="containter">
+
+    <p class="title">Your Profile</p>
+
+
+    <ion-card>
+      <ion-card-content>
+        <div class="tel dis-b">
+          <ion-icon name="call"></ion-icon><label>tel:{{catchMsg.tel}}</label>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="email dis-b">
+          <ion-icon name="at"></ion-icon><label ios-at-outline>email:{{catchMsg.email}}</label>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="address dis-b">
+          <ion-icon name="home"></ion-icon>
+          <label>address:{{catchMsg.address}}</label>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
 </ion-content>
 
 
 <ion-footer>
+
   <ion-toolbar>
-    <ion-title class="abc" >Footer</ion-title>
-      <button ion-button (click)="gotoRegisterPage()">RegisterPage</button>
-      <button ion-button (click)="gotoRegisterPage()">RegisterPage</button>
-      <button ion-button (click)="gotoRegisterPage()">RegisterPage</button>
+    <!-- <ion-title class="footer">Footer</ion-title> -->
+    <button ion-button (click)="gotoRegisterPage()">Register</button>
+    <button ion-button (click)="gotoHomePage()">native browser</button>
+    <button ion-button (click)="gotoHomePage()">sign out</button>
   </ion-toolbar>
 </ion-footer>

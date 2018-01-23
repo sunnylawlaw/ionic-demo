@@ -28,7 +28,7 @@ export class HomePage {
     if (this.username=="Alvin" && this.password=="123"){
       this.navCtrl.push("MainPage");
     } else {
-      console.log("Fuck you");
+      console.log("fial");
     }
 
   //   this.navCtrl.push("MainPage",{

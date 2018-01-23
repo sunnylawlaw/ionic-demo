@@ -1,5 +1,5 @@
-import { Component ,OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component} from '@angular/core';
+import { IonicPage, NavController } from 'ionic-angular';
 import  {HomePage}  from '../home/home';
 /**
  * Generated class for the MainPage page.
@@ -15,12 +15,12 @@ import  {HomePage}  from '../home/home';
 })
 export class MainPage {
 // userInfoHomePage:HomePage;
-catchMsg:any;
+catchMsg:HomePage;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private navCtrl: NavController) {
     // this.catchMsg=this.navParams.get('userInfo');
     this.catchMsg=new HomePage;
-      console.log(this.catchMsg.tel+'aa');
+
   }
   ngOnInit(){
 
@@ -34,6 +34,9 @@ catchMsg:any;
 
   gotoRegisterPage(){
     this.navCtrl.push("RegisterPage");
+  }
+  gotoHomePage(){
+    this.navCtrl.push("HomePage");
   }
 
 }

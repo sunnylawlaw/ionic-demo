@@ -1,5 +1,24 @@
 page-main {
-.abc{
+
+.containter{
+  text-align: center;
+  .title{
+    margin-bottom: 50px;
+  }
+
+    .dis-b{
+      margin: 10px;
+      display: block;
+      label{
+        margin: 10px;
+      }
+    }
+
+}
+
+.footer{
       text-align: center;
 }
+
+
 }
