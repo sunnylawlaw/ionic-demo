@@ -3,7 +3,7 @@
     <name>myApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://172.16.3.157:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -81,7 +81,9 @@
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
-    <engine name="ios" spec="~4.5.4" />
-    <plugin name="cordova-plugin-inappbrowser" spec="^2.0.1" />
     <allow-navigation href="http://192.168.1.223:8100" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^2.0.1" />
+    <allow-navigation href="http://172.16.3.157:8101" />
+    <allow-navigation href="http://172.16.3.157:8100" />
+    <engine name="ios" spec="4.5.4" />
 </widget>

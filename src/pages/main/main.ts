@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import  {HomePage}  from '../home/home';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 /**
  * Generated class for the MainPage page.
  *
@@ -31,7 +31,11 @@ export class MainPage {
 
 
   goBrowser(){
-    this.iab.create('https://ionicframework.com/');
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    const browser = this.iab.create('https://ionicframework.com/', '_blank', options);
+    // this.iab.create('https://ionicframework.com/', '_self', {location: 'no'});
     // browser.executeScript();
     // browser.insertCSS();
     // browser.close();
