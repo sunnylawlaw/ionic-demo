@@ -15,18 +15,13 @@ import  {HomePage}  from '../home/home';
 })
 export class MainPage {
 // userInfoHomePage:HomePage;
-catchMsg:HomePage;
+ catchMsg=HomePage;
 
   constructor(private navCtrl: NavController) {
     // this.catchMsg=this.navParams.get('userInfo');
-    this.catchMsg=new HomePage;
-
+    
   }
-  ngOnInit(){
 
-    // console.log(this.userInfoHomePage.tel;);
-
-  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MainPage');
