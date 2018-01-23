@@ -18,7 +18,7 @@ export class HomePage {
    private _address: string='hong kong';
 
    private _error_msg='Wrong AC OR PW,Please Retry' ;
-
+//
 
   constructor(private _navCtrl: NavController) {
 
