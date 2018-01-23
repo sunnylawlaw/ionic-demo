@@ -19,21 +19,23 @@ export class HomePage {
 
 
   constructor(private navCtrl: NavController) {
-    this.tel=888;
+    // this.tel=888;
     // this.email='sunny.law@gt.com';
     // this.address='hong kong';
   }
 
   Login(){
-    if (this.username=="Alvin" && this.password=="123"){
-      this.navCtrl.push("MainPage");
-    } else {
-      console.log("fial");
-    }
+    // if (this.username=="Alvin" && this.password=="123"){
+    //   this.navCtrl.push("MainPage",{
+    //     tel:this.tel,email:this.email,address:this.address
+    // });
+    // } else {
+    //   console.log("fial");
+    // }
 
-  //   this.navCtrl.push("MainPage",{
-  //     userInfo:HomePage
-  // });
+    this.navCtrl.push("MainPage",{
+      tel:this.tel,email:this.email,address:this.address
+  });
 }
 
   Register(){

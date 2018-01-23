@@ -1,6 +1,6 @@
-import { Component} from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-import  {HomePage}  from '../home/home';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 /**
  * Generated class for the MainPage page.
@@ -15,26 +15,58 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
   templateUrl: 'main.html',
 })
 export class MainPage {
-// userInfoHomePage:HomePage;
- catchMsg=HomePage;
 
+  private _navCtrl: NavController;
+  private _navParams: NavParams;
+  private _iab: InAppBrowser;
 
-  constructor(private navCtrl: NavController ,private iab: InAppBrowser) {
-    // this.catchMsg=this.navParams.get('userInfo');
+  tel:number;
+  email:string;
+  address:string;
+
+  catch_data: any;
+
+  constructor(
+    _navCtrl: NavController,
+    _navParams: NavParams,
+    _iab: InAppBrowser) {
+    this._navParams = _navParams;
+
 
   }
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MainPage');
   }
 
+  ionViewWillEnter(){
+    console.log('ionViewWillEnter');
+  }
 
-  goBrowser(){
+  ionViewDidEnter(){
+    console.log('ionViewDidEnter');
+    console.log(this._navParams.data);
+    this.catch_data=this._navParams.data;
+    this.tel=this.catch_data.tel;
+    this.email=this.catch_data.email;
+    this.address=this.catch_data.address;
+  }
+
+  ionViewWillLeave(){
+    console.log('ionViewWillLeave');
+  }
+
+  ionViewDidLeave(){
+    console.log('ionViewDidLeave');
+  }
+
+
+
+  goBrowser() {
     const options: InAppBrowserOptions = {
       zoom: 'no'
     }
-    const browser = this.iab.create('https://ionicframework.com/', '_blank', options);
+    const browser = this._iab.create('https://ionicframework.com/', '_blank', options);
     // this.iab.create('https://ionicframework.com/', '_self', {location: 'no'});
     // browser.executeScript();
     // browser.insertCSS();
@@ -42,11 +74,13 @@ export class MainPage {
   }
 
 
-  gotoRegisterPage(){
-    this.navCtrl.push("RegisterPage");
+  gotoRegisterPage() {
+    this._navCtrl.push("RegisterPage");
   }
-  gotoHomePage(){
-    this.navCtrl.push(HomePage);
+  gotoHomePage() {
+    this._navCtrl.push(HomePage);
   }
+
+
 
 }
