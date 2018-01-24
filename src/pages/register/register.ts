@@ -14,12 +14,12 @@ import { HomePage } from '../home/home';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  private _username: string;
-  private _password: string;
-  private _Confirmpassword: string;
-  private _tel: number;
-  private _email: string;
-  private _address: string;
+  private username: string;
+  private password: string;
+  private confirmPassword: string;
+  private tel: number;
+  private email: string;
+  private address: string;
 
   private _navCtrl: NavController;
 
@@ -54,9 +54,13 @@ export class RegisterPage {
 }
   createAC(){
       console.log('ok');
-    //   this.navCtrl.push("MainPage",{
-    //     tel:this._tel,email:this._email,address:this._address
-    // });
+      this._navCtrl.push("MainPage",{
+        username:this.username,
+        password:this.password,
+        tel:this._tel,
+        email:this._email,
+        address:this._address
+    });
   }
 
 }
