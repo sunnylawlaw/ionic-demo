@@ -15,47 +15,50 @@
 
 <ion-content padding>
   <div class="container">
-  <ion-list>
-    <ion-item>
-      <ion-input [(ngModel)]="username" type="text" placeholder="Username"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="password"  type="password" placeholder="Password"></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-input [(ngModel)]="confirmPassword"  type="password" placeholder="ConfirmPassword"></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-input [(ngModel)]="tel"  type="tel" placeholder="Tel"></ion-input>
-    </ion-item>
+    <form   (ngSubmit)="check()">
+          <ion-item>
+            <ion-input type="text" [(ngModel)]=formData.username name=username placeholder="Username"></ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-input [(ngModel)]="email"  type="email" placeholder="Email"></ion-input>
-    </ion-item>
+          <ion-item>
+            <ion-input type="password" [(ngModel)]="formData.password" name="password" placeholder="Password"></ion-input>
+          </ion-item>
 
-    <ion-item>
-      <ion-input [(ngModel)]="address"  type="text" placeholder="Address"></ion-input>
-    </ion-item>
+          <ion-item>
+            <ion-input type="password" [(ngModel)]="formData.confirmPassword" name="ConfirmPassword" placeholder="ConfirmPassword"></ion-input>
+          </ion-item>
 
-  </ion-list>
+          <ion-item>
+            <ion-input type="tel" [(ngModel)]="formData.tel" name="tel" placeholder="Tel"></ion-input>
+          </ion-item>
 
-  <button
-    ion-button
-    color="secondary"
-    class="block-btn"
-    (click)="check()">
-    Register
-  </button>
+          <ion-item>
+            <ion-input type="email" [(ngModel)]="formData.email" name="email" placeholder="Email"></ion-input>
+          </ion-item>
 
-  <button
-    ion-button
-    class="block-btn"
-    color="secondary"
-    (click)="back()">
-    Back
-  </button>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="formData.address" name="address" placeholder="Address"></ion-input>
+          </ion-item>
 
-</div>
+
+
+          <button ion-button color="secondary" class="block-btn" type="submit" block>Register</button>
+
+
+          <button
+          ion-button
+          class="block-btn"
+          color="secondary"
+          (click)="back()">
+          Back
+          </button>
+
+        </form>
+
+
+
+
+  </div>
 </ion-content>
