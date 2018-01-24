@@ -43,7 +43,7 @@ export class MainPage {
 
   ionViewWillEnter(){
     console.log('ionViewWillEnter');
-    // console.log(this._navParams.data);
+     console.log(this._navParams.data);
     this.catch_data=this._navParams.data;
     this._tel=this.catch_data.tel;
     this._email=this.catch_data.email;
@@ -69,7 +69,7 @@ export class MainPage {
     const options: InAppBrowserOptions = {
       zoom: 'no'
     }
-    const browser = this._iab.create('https://ionicframework.com/', '_blank', options);
+    const browser = this._iab.create('https://www.google.com/', '_blank', options);
     // this.iab.create('https://ionicframework.com/', '_self', {location: 'no'});
     // browser.executeScript();
     // browser.insertCSS();

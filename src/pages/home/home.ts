@@ -25,18 +25,20 @@ export class HomePage {
   }
 
   Login(){
-    // if (this._username=="Alvin" && this._password=="123"){
-    //   this._navCtrl.push("MainPage",{
-    //     tel:this._tel,email:this._email,address:this._address
-    // });
-    // } else {
-    //   alert(this._error_msg);
-    //   console.log("fial");
-    // }
+    if (this.username=="Alvin" && this.password=="123"){
+      this._navCtrl.push("MainPage",{
+        tel:this._tel,email:this._email,address:this._address
+    });
+    } else {
+      alert(this._error_msg);
+      console.log("fial");
+    }
 
-    this._navCtrl.push("MainPage",{
-      tel:this._tel,email:this._email,address:this._address
-  });
+  //   this._navCtrl.push("MainPage",{
+  //     tel:this._tel,
+  //     email:this._email,
+  //     address:this._address
+  // });
 }
 
   Register(){
