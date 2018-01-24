@@ -1,9 +1,3 @@
-<!--
-  Generated template for the MainPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar hideBackButton>
@@ -17,30 +11,29 @@
 
   <div class="containter">
 
-    <p class="title">Your Profile</p>
+    <h1 margin text-center>{{_name}}'s Profile</h1>
 
-
-    <ion-card>
+    <ion-card color=lightgrey>
       <ion-card-content>
-        <div class="tel dis-b">
-          <ion-icon name="call"></ion-icon><label>Tel:{{_tel}}</label>
+        <div padding>
+          <ion-icon name="call"></ion-icon><label> Tel: {{_tel}}</label>
         </div>
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <ion-card color=lightgrey>
       <ion-card-content>
-        <div class="email dis-b">
-          <ion-icon name="at"></ion-icon><label ios-at-outline>Email:{{_email}}</label>
+        <div padding>
+          <ion-icon name="at"></ion-icon><label ios-at-outline> Email: {{_email}}</label>
         </div>
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
-      <ion-card-content>
-        <div class="address dis-b">
+    <ion-card color=lightgrey>
+      <ion-card-content >
+        <div padding>
           <ion-icon name="home"></ion-icon>
-          <label>Address:{{_address}}</label>
+          <label> Address: {{_address}}</label>
         </div>
       </ion-card-content>
     </ion-card>
@@ -50,11 +43,27 @@
 
 
 <ion-footer>
+    <button
+      ion-button
+      color=secondary
+      clear
+      (click)="gotoRegisterPage()">
+      Register
+    </button>
 
-  <ion-toolbar>
-    <!-- <ion-title class="footer">Footer</ion-title> -->
-    <button ion-button (click)="gotoRegisterPage()">Register</button>
-    <button ion-button (click)="goBrowser()">native browser</button>
-    <button ion-button (click)="gotoHomePage()">sign out</button>
-  </ion-toolbar>
+    <button
+      ion-button
+      color=secondary
+      clear
+      (click)="goBrowser()">
+      native browser
+    </button>
+
+    <button
+      ion-button
+      color=secondary
+      clear
+      (click)="gotoHomePage()">
+      sign out
+    </button>
 </ion-footer>
