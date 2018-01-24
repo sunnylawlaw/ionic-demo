@@ -25,7 +25,7 @@ export class HomePage {
   }
 
   Login(){
-    if (this.username=="Alvin" && this.password=="123"){
+    if (this._username=="Alvin" && this._password=="123"){
       this._navCtrl.push("MainPage",{
         tel:this._tel,email:this._email,address:this._address
     });

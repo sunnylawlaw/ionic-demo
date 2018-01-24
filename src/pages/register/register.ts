@@ -57,9 +57,9 @@ export class RegisterPage {
       this._navCtrl.push("MainPage",{
         username:this.username,
         password:this.password,
-        tel:this._tel,
-        email:this._email,
-        address:this._address
+        tel:this.tel,
+        email:this.email,
+        address:this.address
     });
   }
 
