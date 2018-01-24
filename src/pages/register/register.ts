@@ -23,7 +23,7 @@ export class RegisterPage {
 
   private _navCtrl: NavController;
 
-  constructor( _navCtrl: NavController, public navParams: NavParams) {
+  constructor(_navCtrl: NavController, public navParams: NavParams) {
     this._navCtrl = _navCtrl;
   }
 
@@ -31,35 +31,38 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  back(){
-    this._navCtrl.push(HomePage);
+  back() {
+    this._navCtrl.pop();
   }
 
-  check(){
-    console.log('username',this.username);
-  if(this.password!=this.confirmPassword){
-    alert('Please input same Password');
-  }else if(
-    this.username==undefined||
-    this.password==undefined||
-    this.confirmPassword==undefined||
-    this.tel==undefined||
-    this.email==undefined||
-    this.address==undefined)
-    {
-    alert('Please Fill All');
-  }else{
-    this.createAC();
+  check() {
+    if (this.password != this.confirmPassword) {
+      alert('Please input same Password');
+    } else if (
+      this.username == undefined ||
+      this.password == undefined ||
+      this.confirmPassword == undefined ||
+      this.tel == undefined ||
+      this.email == undefined ||
+      this.address == undefined) {
+      alert('Please Fill All');
+    } else {
+      this.createAC();
+    }
   }
-}
-  createAC(){
-      console.log('ok');
-      this._navCtrl.push("MainPage",{
-        username:this.username,
-        password:this.password,
-        tel:this.tel,
-        email:this.email,
-        address:this.address
+  createAC() {
+    console.log('ok');
+    console.log(this.username);
+    console.log(this.password);
+    console.log(this.tel);
+    console.log(this.email);
+    console.log(this.address);
+    this._navCtrl.push(HomePage, {
+      res_username: this.username,
+      res_password: this.password,
+      res_tel: this.tel,
+      res_email: this.email,
+      res_address: this.address
     });
   }
 

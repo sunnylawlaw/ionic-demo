@@ -20,6 +20,7 @@ export class MainPage {
   private _navParams: NavParams;
   private _iab: InAppBrowser;
 
+  private _username:number;
   private _tel:number;
   private _email:string;
   private _address:string;
@@ -48,6 +49,7 @@ export class MainPage {
     this._tel=this.catch_data.tel;
     this._email=this.catch_data.email;
     this._address=this.catch_data.address;
+    this._username=this.catch_data.name;
   }
 
   ionViewDidEnter(){
