@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar >
+  <ion-navbar hideBackButton>
     <ion-title class="title">Main</ion-title>
   </ion-navbar>
 
@@ -47,7 +47,7 @@
       ion-button
       color=secondary
       clear
-      (click)="gotoRegisterPage()">
+      navPush="RegisterMethodPage">
       Register
     </button>
 

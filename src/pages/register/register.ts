@@ -80,6 +80,7 @@ console.log(this.book.length);
 
   createAC() {
     console.log('success');
+    this._navCtrl.push(HomePage);
 
     // this._navCtrl.push(HomePage, {
     //   res_username: this.formData.username,

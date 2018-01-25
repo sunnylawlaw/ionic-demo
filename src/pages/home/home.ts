@@ -77,8 +77,7 @@ export class HomePage {
     // });
   }
 
-  Register() {
-    this._navCtrl.push("RegisterPage");
-
-  }
+  // Register() {
+  //   this._navCtrl.push("RegisterPage");
+  // }
 }
