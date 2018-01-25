@@ -48,18 +48,33 @@ export class RegisterPage {
 
   pusharray(){
 
-      var booktemp={
-        "username" : "333",
-         "password" : new Date(1980, 2, 24),
-         "tel" : 1,
-         "email" : 4,
-         "address" : "A Book About Nothing"
+      var newRecord={
+        "username" : this.formData.username,
+         "password" : this.formData.password,
+         "tel" : this.formData.tel,
+         "email" : this.formData.email,
+         "address" : this.formData.address
       };
 
 
-      this.book.push(booktemp);
-      console.log(this.book);
+      // this.book.push(newRecord);
+      console.log('this.formData.username',this.formData.username);
+
+console.log(this.book.length);
+
+  this.book.push(newRecord);
       // console.log(this.book.username[1]);
+
+      for(let i=0;i<this.book.length;i++){
+        if(this.formData.username==this.book[i].username){
+          // alert('use another nusernameame');
+          // break;
+
+        }else{
+
+          console.log('added new' ,this.book);
+        }
+      }
 
   }
 
