@@ -16,20 +16,20 @@ import { DataService } from '../../services/userinfo';
 })
 export class RegisterPage {
 
-  private _navCtrl: NavController;
+  private _navCtrl      : NavController;
+  private _callUserinfo : DataService;
+  private _navParams    : NavParams
 
   formData = <any>{};
 
-
-  // book1 = new Array();
-  // book =[];
-  book = DataService;
-
-  constructor(_navCtrl: NavController,
-       public   navParams: NavParams,
-       public   callUserinfo: DataService
+  constructor(
+    _navCtrl            : NavController,
+    _navParams          : NavParams,
+    _callUserinfo       : DataService
    ) {
-    this._navCtrl = _navCtrl;
+    this._navCtrl       = _navCtrl;
+    this._callUserinfo  = _callUserinfo;
+    this._navParams     = _navParams;
   }
 
   ionViewDidLoad() {
@@ -43,7 +43,6 @@ export class RegisterPage {
 
   check() {
     console.log(this.formData);
-
     if (this.formData.password != this.formData.confirmPassword) {
       alert('Please input same Password');
     } else {
@@ -52,7 +51,7 @@ export class RegisterPage {
   }
 
   pusharray() {
-      this.callUserinfo.addData(
+          this._callUserinfo.addData(
           this.formData.username,
           this.formData.password,
           this.formData.tel,
@@ -64,15 +63,15 @@ export class RegisterPage {
 
   createAC() {
     console.log('success');
+    this._callUserinfo.addData
+    (
+    this.formData.username,
+    this.formData.password,
+    this.formData.tel,
+    this.formData.email,
+    this.formData.address
+    );
     this._navCtrl.push(HomePage);
-
-    // this._navCtrl.push(HomePage, {
-    //   res_username: this.formData.username,
-    //   res_password: this.formData.password,
-    //   res_tel: this.formData.tel,
-    //   res_email: this.formData.email,
-    //   res_address: this.formData.address
-    // });
   }
 
 }
