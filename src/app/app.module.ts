@@ -5,10 +5,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {FIREBASE_CONFIG} from './firebase.credentials';
+
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+
 import { SharedModule } from '../sharedModule/shared.module';
+
+import {UserService} from '../services/firebase/user.service';
+
 
 @NgModule({
   declarations: [
@@ -17,8 +26,15 @@ import { SharedModule } from '../sharedModule/shared.module';
   ],
   imports: [
     BrowserModule,
+
     SharedModule.forRoot(),
     IonicModule.forRoot(MyApp)
+
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule
+
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +45,8 @@ import { SharedModule } from '../sharedModule/shared.module';
     StatusBar,
     SplashScreen,
     InAppBrowser,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserService
   ]
 })
 export class AppModule {}

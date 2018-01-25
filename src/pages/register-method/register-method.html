@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3 margin style="color:grey;">Choose your register method</h3>
+
+  <ion-card style="height:100px;">
+    <a navPush="RegisterPage">
+      <img src="../assets/imgs/local_storage.png" alt="">
+    </a>
+  </ion-card>
+
+  <ion-card style="height:100px;">
+    <a navPush="Register2Page">
+      <img src="../assets/imgs/firebase.png" alt="">
+    </a>
+  </ion-card>
+
+  <button
+    ion-button
+    class="block-btn"
+    color="secondary"
+    (click)="back()">
+      Back
+  </button>
+
+</ion-content>
