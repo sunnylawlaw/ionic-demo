@@ -8,6 +8,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { SharedModule } from '../sharedModule/shared.module';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -15,6 +17,7 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    SharedModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
