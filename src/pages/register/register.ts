@@ -14,18 +14,14 @@ import { HomePage } from '../home/home';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  private _username: string;
-  private _password: string;
-  private _confirmPassword: string;
-  private _tel: number;
-  private _email: string;
-  private _address: string;
 
   private _navCtrl: NavController;
 
   formData = <any>{};
 
 
+   book1 = new Array();
+    book =[];
 
   constructor(_navCtrl: NavController, public navParams: NavParams) {
     this._navCtrl = _navCtrl;
@@ -43,35 +39,39 @@ export class RegisterPage {
   check() {
     console.log(this.formData);
 
-    this._username=this.formData.username;
-
     if (this.formData.password != this.formData.confirmPassword) {
       alert('Please input same Password');
-    } else if (
-      this.formData.username == undefined ||
-      this.formData.password == undefined ||
-      this.formData.confirmPassword == undefined ||
-      this.formData.tel == undefined ||
-      this.formData.email == undefined ||
-      this.formData.address == undefined) {
-      // alert('Please Fill All');
     } else {
       this.createAC();
     }
   }
+
+  pusharray(){
+
+      var booktemp={
+        "username" : "333",
+         "password" : new Date(1980, 2, 24),
+         "tel" : 1,
+         "email" : 4,
+         "address" : "A Book About Nothing"
+      };
+
+
+      this.book.push(booktemp);
+      console.log(this.book);
+      // console.log(this.book.username[1]);
+
+  }
+
   createAC() {
-    console.log('ok');
-    // console.log(this.username);
-    // console.log(this.password);
-    // console.log(this.tel);
-    // console.log(this.email);
-    // console.log(this.address);
+    console.log('success');
+
     // this._navCtrl.push(HomePage, {
-    //   res_username: this.username,
-    //   res_password: this.password,
-    //   res_tel: this.tel,
-    //   res_email: this.email,
-    //   res_address: this.address
+    //   res_username: this.formData.username,
+    //   res_password: this.formData.password,
+    //   res_tel: this.formData.tel,
+    //   res_email: this.formData.email,
+    //   res_address: this.formData.address
     // });
   }
 

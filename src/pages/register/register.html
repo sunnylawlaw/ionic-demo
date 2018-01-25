@@ -10,46 +10,86 @@
 <ion-content padding>
   <div class="container">
 
+    <form (ngSubmit)="check()" name="resForm" #resForm="ngForm">
+      <ion-item>
+        <ion-input type="text" [(ngModel)]=formData.username name=username placeholder="Username" class="form-control" minlength="4" #username="ngModel" required></ion-input>
+      </ion-item>
 
-    <form   (ngSubmit)="check()">
-          <ion-item>
-            <ion-input type="text" [(ngModel)]=formData.username name=username placeholder="Username"></ion-input>
-          </ion-item>
+      <ion-item>
+        <ion-input type="password" [(ngModel)]="formData.password" name="password" placeholder="Password" class="form-control" #password="ngModel" required></ion-input>
+      </ion-item>
 
-          <ion-item>
-            <ion-input type="password" [(ngModel)]="formData.password" name="password" placeholder="Password"></ion-input>
-          </ion-item>
+      <ion-item>
+        <ion-input type="password" [(ngModel)]="formData.confirmPassword" name="ConfirmPassword" placeholder="ConfirmPassword" #ConfirmPassword="ngModel" required></ion-input>
+      </ion-item>
 
-          <ion-item>
-            <ion-input type="password" [(ngModel)]="formData.confirmPassword" name="ConfirmPassword" placeholder="ConfirmPassword"></ion-input>
-          </ion-item>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="formData.tel" name="tel" placeholder="Tel" #tel="ngModel" required></ion-input>
+      </ion-item>
 
-          <ion-item>
-            <ion-input type="tel" [(ngModel)]="formData.tel" name="tel" placeholder="Tel"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input type="email" [(ngModel)]="formData.email" name="email" placeholder="Email"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input type="text" [(ngModel)]="formData.address" name="address" placeholder="Address"></ion-input>
-          </ion-item>
+      <ion-item>
+        <ion-input type="email" [(ngModel)]="formData.email" name="email" placeholder="Email" #email="ngModel" required pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{2,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
+      </ion-item>
 
 
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="formData.address" name="address" placeholder="Address" #address="ngModel" required></ion-input>
+      </ion-item>
 
-          <button ion-button color="secondary" class="block-btn" type="submit" block>Register</button>
+      <div padding>
 
+        <div *ngIf="username.invalid && username.touched">
+          <div *ngIf="username.errors.required" class="warning">
+            *Name is required.
+          </div>
 
-          <button
-          ion-button
-          class="block-btn"
-          color="secondary"
-          (click)="back()">
-          Back
-          </button>
+          <div *ngIf="username.errors.minlength" class="warning">
+            *Name must be at least 4 characters long.
+          </div>
+        </div>
 
-        </form>
+        <div *ngIf="password.invalid && password.touched">
+          <div *ngIf="password.errors.required" class="warning">
+            *Password is required.
+          </div>
+        </div>
+
+        <div *ngIf="ConfirmPassword.invalid && ConfirmPassword.touched">
+          <div *ngIf="ConfirmPassword.errors.required" class="warning">
+            *ConfirmPassword is required.
+          </div>
+        </div>
+
+        <div *ngIf="tel.invalid && tel.touched">
+          <div *ngIf="tel.errors.required" class="warning">
+            *Tel is required.
+          </div>
+        </div>
+
+        <div *ngIf="email.invalid && email.touched">
+          <div *ngIf="email.errors.required" class="warning">
+            *Email is required.
+          </div>
+          <div *ngIf="email.errors.pattern" class="warning">
+            *Input right Email.
+          </div>
+        </div>
+
+        <div *ngIf="address.invalid && address.touched">
+          <div *ngIf="address.errors.required" class="warning">
+            *Address is required.
+          </div>
+        </div>
+      </div>
+      <button ion-button color="secondary" class="block-btn" type="submit" [disabled]="!resForm.form.valid">Register</button>
+    </form>
+    <button ion-button class="block-btn" color="secondary" (click)="back()">
+        Back
+        </button>
+
+        <button ion-button class="block-btn" color="secondary" (click)="pusharray()">
+            testing
+            </button>
 
 
 
