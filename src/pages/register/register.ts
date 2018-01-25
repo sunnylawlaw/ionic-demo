@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { DataService } from '../../services/userinfo';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -20,10 +21,14 @@ export class RegisterPage {
   formData = <any>{};
 
 
-   book1 = new Array();
-    book =[];
+  // book1 = new Array();
+  // book =[];
+  book = DataService;
 
-  constructor(_navCtrl: NavController, public navParams: NavParams) {
+  constructor(_navCtrl: NavController,
+       public   navParams: NavParams,
+       public   callUserinfo: DataService
+   ) {
     this._navCtrl = _navCtrl;
   }
 
@@ -46,37 +51,16 @@ export class RegisterPage {
     }
   }
 
-  pusharray(){
-
-      var newRecord={
-        "username" : this.formData.username,
-         "password" : this.formData.password,
-         "tel" : this.formData.tel,
-         "email" : this.formData.email,
-         "address" : this.formData.address
-      };
-
-
-      // this.book.push(newRecord);
-      console.log('this.formData.username',this.formData.username);
-
-console.log(this.book.length);
-
-  this.book.push(newRecord);
-      // console.log(this.book.username[1]);
-
-      for(let i=0;i<this.book.length;i++){
-        if(this.formData.username==this.book[i].username){
-          // alert('use another nusernameame');
-          // break;
-
-        }else{
-
-          console.log('added new' ,this.book);
-        }
-      }
-
+  pusharray() {
+      this.callUserinfo.addData(
+          this.formData.username,
+          this.formData.password,
+          this.formData.tel,
+          this.formData.email,
+          this.formData.address
+      );
   }
+
 
   createAC() {
     console.log('success');

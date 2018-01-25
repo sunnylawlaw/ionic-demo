@@ -13,7 +13,11 @@ import {FIREBASE_CONFIG} from './firebase.credentials';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+
+import { SharedModule } from '../sharedModule/shared.module';
+
 import {UserService} from '../services/firebase/user.service';
+
 
 @NgModule({
   declarations: [
@@ -22,9 +26,14 @@ import {UserService} from '../services/firebase/user.service';
   ],
   imports: [
     BrowserModule,
+
+    SharedModule.forRoot(),
+    IonicModule.forRoot(MyApp)
+
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule
+
 
   ],
   bootstrap: [IonicApp],
