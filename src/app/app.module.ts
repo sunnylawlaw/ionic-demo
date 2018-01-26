@@ -28,8 +28,6 @@ import {UserService} from '../services/firebase/user.service';
     BrowserModule,
 
     SharedModule.forRoot(),
-    IonicModule.forRoot(MyApp)
-
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule

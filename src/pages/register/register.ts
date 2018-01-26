@@ -20,16 +20,23 @@ export class RegisterPage {
   private _callUserinfo : DataService;
   private _navParams    : NavParams
 
-  formData = <any>{};
+  formData: FormData = {
+      username : null,
+      password : null,
+      confirmPassword : null,
+      tel : null,
+      email : null,
+      address : null,
+  };
 
   constructor(
-    _navCtrl            : NavController,
-    _navParams          : NavParams,
-    _callUserinfo       : DataService
+    navCtrl            : NavController,
+    navParams          : NavParams,
+    callUserinfo       : DataService
    ) {
-    this._navCtrl       = _navCtrl;
-    this._callUserinfo  = _callUserinfo;
-    this._navParams     = _navParams;
+    this._navCtrl       = navCtrl;
+    this._callUserinfo  = callUserinfo;
+    this._navParams     = navParams;
   }
 
   ionViewDidLoad() {
@@ -50,17 +57,6 @@ export class RegisterPage {
     }
   }
 
-  pusharray() {
-          this._callUserinfo.addData(
-          this.formData.username,
-          this.formData.password,
-          this.formData.tel,
-          this.formData.email,
-          this.formData.address
-      );
-  }
-
-
   createAC() {
     console.log('success');
     this._callUserinfo.addData
@@ -74,4 +70,13 @@ export class RegisterPage {
     this._navCtrl.push(HomePage);
   }
 
+}
+
+interface FormData {
+    username        : string;
+    password        : number;
+    confirmPassword :number;
+    tel             : number;
+    email           : string;
+    address         : string;
 }

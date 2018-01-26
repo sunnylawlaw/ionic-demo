@@ -66,7 +66,6 @@ export class MainPage {
   }
 
 
-
   goBrowser() {
     const options: InAppBrowserOptions = {
       zoom: 'no'
