@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../services/userinfo';
+import { UserService} from '../../services/firebase/user.service';
 
 @Component({
   selector: 'page-home',
@@ -11,6 +12,7 @@ export class HomePage {
   private _navParams        : NavParams;
   private _callUserinfo     : DataService;
   private _navCtrl          : NavController;
+  private _userService      : UserService;
 
   private _username         : string;
   private _password         : string;
@@ -26,11 +28,13 @@ export class HomePage {
   constructor(
     navCtrl                : NavController,
     navParams              : NavParams,
-    callUserinfo           : DataService
+    callUserinfo           : DataService,
+    userService             : UserService,
     ) {
     this._callUserinfo      = callUserinfo;
     this._navParams         = navParams;
     this._navCtrl           = navCtrl;
+    this._userService       = userService;
 
   }
 
@@ -63,5 +67,15 @@ export class HomePage {
 
     Register() {
       this._navCtrl.push("RegisterPage");
+    }
+
+    loginFire(){
+      this._userService.loginFirebase().subscribe(
+        res=>{
+          console.log('res', res);
+        }, err =>{
+          console.log('err', err);
+        }
+      )
     }
   }
