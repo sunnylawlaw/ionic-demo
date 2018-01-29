@@ -47,52 +47,48 @@ export class HomePage {
 
 
   Login(){
-
-      this.check=this._callUserinfo.loginCheck(this._username,this._password)
-
-      if(this.check==true){
-          console.log(this.check);
-          let index=this._callUserinfo.getArrayIndex(this._username);
-
-            this._navCtrl.push("MainPage",{
-                name        :this._username,
-                tel         :this._callUserinfo.getTel(index),
-                email       :this._callUserinfo.getEmail(index),
-                address     :this._callUserinfo.getAddress(index)
-          });
-
-      }else{
-          console.log(this.check);
-          alert(this._error_msg);
-      }
-  }
-
-  loginFire(){
+    this.check=this._callUserinfo.loginCheck(this._username,this._password)
     this._userService.loginFirebase()
-      .subscribe(
-        res => {
-          let success: boolean = false;
-          let index;
-          // === match userinput with DB ===
-          for (let i=0; i<res.length; i++){
-            if (this._username==res[i].username && this._password==res[i].password){
-              success = true;
-              index = i;
-            }
-          }
-          // === login logic ===
-          if (success == true){
-            this._navCtrl.push('MainPage', {
-              name:     this._username,
-              tel:      res[index].tel,
-              email:    res[index].email,
-              address:  res[index].address
-            })
-          } else {
-            alert("Fuck you")
-          }
+    .subscribe(
+      res => {
+        let success: boolean = false;
+        let index;
+        // match userinput with DB
+        for (let i=0; i<res.length; i++){
+        if (this._username==res[i].username && this._password==res[i].password){
+          success = true;
+          index = i;
         }
-      )
+      }
+      // Login logic
+      console.log('Firebase Login');
+      if (success == true){
+      this._navCtrl.push('MainPage', {
+        name:     this._username,
+        tel:      res[index].tel,
+        email:    res[index].email,
+        address:  res[index].address
+      })
+    } else if (this.check==true) {
+      console.log('Local Cache login');
+        console.log(this.check);
+        let index=this._callUserinfo.getArrayIndex(this._username);
+
+        this._navCtrl.push("MainPage",{
+          name        :this._username,
+          tel         :this._callUserinfo.getTel(index),
+          email       :this._callUserinfo.getEmail(index),
+          address     :this._callUserinfo.getAddress(index)
+        });
+
+
+    } else if (success == false  || this.check==false) {
+      console.log(this.check);
+      alert(this._error_msg);
+    }
+  }
+)
+
   }
 
 }
