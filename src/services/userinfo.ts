@@ -43,14 +43,14 @@ export class DataService {
     }
 
     loginCheck(username,password){
-    let count =0;
+    let count: boolean;
     for(let i = 0; i < this._userlist.length; i++){
         if(username==this._userlist[i].username && password==this._userlist[i].password){
-                count++;
+          count = true;
         }
     }
 
-    if(count!=0){
+    if(count==true){
         return true;
         }else{
         return false;

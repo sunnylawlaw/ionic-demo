@@ -7,6 +7,7 @@ import { UserService} from '../../services/firebase/user.service';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   private _navParams        : NavParams;
@@ -19,6 +20,7 @@ export class HomePage {
   private _tel              : number;
   private _email            : string;
   private _address          : string;
+  // private _store            : any;
 
   private _error_msg        = 'Wrong AC OR PW,Please Retry';
 
@@ -65,36 +67,32 @@ export class HomePage {
       }
   }
 
-    Register() {
-      this._navCtrl.push("RegisterPage");
-    }
-
-    loginFire(){
-      this._userService.loginFirebase().subscribe(
-
-        res=>{
-          // console.log('res', res);
-          let  a;
-          a=res;
-          return res;
-        }, err =>{
-          console.log('err', err);
+  loginFire(){
+    this._userService.loginFirebase()
+      .subscribe(
+        res => {
+          let success: boolean = false;
+          let index;
+          // === match userinput with DB ===
+          for (let i=0; i<res.length; i++){
+            if (this._username==res[i].username && this._password==res[i].password){
+              success = true;
+              index = i;
+            }
+          }
+          // === login logic ===
+          if (success == true){
+            this._navCtrl.push('MainPage', {
+              name:     this._username,
+              tel:      res[index].tel,
+              email:    res[index].email,
+              address:  res[index].address
+            })
+          } else {
+            alert("Fuck you")
+          }
         }
       )
-      return a;
-    }
-
-    test(){
-      // let a=<any>[];
-      // a=this.loginFire();
-
-       console.log(this.loginFire());
-    }
-
-    // loginCheck(username, password){
-    //   let count=0;
-    //   for(let i=0; i<10; i++){
-    //
-    //   }
-    // }
   }
+
+}
