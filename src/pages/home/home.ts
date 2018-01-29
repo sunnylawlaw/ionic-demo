@@ -71,11 +71,30 @@ export class HomePage {
 
     loginFire(){
       this._userService.loginFirebase().subscribe(
+
         res=>{
-          console.log('res', res);
+          // console.log('res', res);
+          let  a;
+          a=res;
+          return res;
         }, err =>{
           console.log('err', err);
         }
       )
+      return a;
     }
+
+    test(){
+      // let a=<any>[];
+      // a=this.loginFire();
+
+       console.log(this.loginFire());
+    }
+
+    // loginCheck(username, password){
+    //   let count=0;
+    //   for(let i=0; i<10; i++){
+    //
+    //   }
+    // }
   }
